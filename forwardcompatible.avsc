@@ -1,0 +1,6 @@
+// See https://laso-coder.medium.com/avro-schema-evolution-demystified-backward-and-forward-compatibility-explained-561beeaadc6b
+// An older version of a schema can read data written in a newer version of the schema
+// 1. New optional fields are added to the schema, and older consumers can ignore these fields.
+// 2. If a field’s type is changed to a compatible type (e.g., from int to long), older consumers can still read the data.
+// 3. New symbols or enums can be added to existing enums without breaking compatibility, as older consumers will treat
+// unknown symbols as if they were the default.

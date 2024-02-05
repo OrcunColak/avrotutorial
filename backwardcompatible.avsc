@@ -1,0 +1,15 @@
+// See https://laso-coder.medium.com/avro-schema-evolution-demystified-backward-and-forward-compatibility-explained-561beeaadc6b
+// A new version of a schema can read data written in an older version of the schema.
+// 1. New fields are added to the schema with default values
+// 2. Optional fields (with default values) can be safely removed.
+// 3. Fields can be reordered without affecting compatibility, as Avro uses field names for serialization and deserialization.
+{
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "id", "type": "int"},
+    {"name": "name", "type": "string"},
+    // add a new field with default value
+    {"name": "email", "type": ["null", "string"], "default": null}
+  ]
+}
